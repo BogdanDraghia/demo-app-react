@@ -1,0 +1,13 @@
+{
+    "extends": [
+      "prettier",
+      "eslint:recommended",
+      "react-app"
+    ],
+    "env": {
+      "es2020":true
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  }
