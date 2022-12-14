@@ -1,12 +1,15 @@
+import style from "./layout.module.css";
+import Header from "./navigation/Header";
+import { Outlet } from "react-router-dom";
+const Layout = () => {
+  return (
+    <div className={style.layoutWrap}>
+      <Header />
+      <div>
+        <Outlet />
+      </div>
+    </div>
+  );
+};
 
-import style from './layout.module.css'
-const Layout =({children })=>{
-    return(
-        <div className={style.layoutWrap}>
-            Header
-            {children} 
-        </div>
-    )
-}
-
-export default Layout
+export default Layout;
