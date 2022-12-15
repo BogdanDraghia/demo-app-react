@@ -11,6 +11,7 @@
     grid-row-gap: 50px;
 }
 .ItemPodcastContainer{
+    box-shadow: var(--boxShadow);
     margin: 60px 0px;
     background-color: white;
     border-radius: 10px;

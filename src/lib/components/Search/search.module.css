@@ -7,7 +7,7 @@
 
 .input{
     padding: 10px 20px;
-    border:1px solid #d6d6d6;
+    border:2px solid #d6d6d6;
     border-radius: 5px;
     outline-color: var(--accent);
 }

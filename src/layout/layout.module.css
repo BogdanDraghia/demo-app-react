@@ -1,3 +1,4 @@
+/* LAYOUT */
 .layoutWrap{
     height: 100%;
 }
@@ -5,8 +6,20 @@
 .layoutContent{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin: 0 auto;
     max-width: calc(100% - 5em);
     width: 80em;
 }
 
+
+/* HEADER */
+
+
+.HeaderContainer{
+    border-bottom: 2px solid var(--grey1);
+}
+.HeaderContainer>h2{
+    color: var(--accent);
+    margin: 20px 0px 10px;
+}

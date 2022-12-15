@@ -3,6 +3,8 @@
 :root {
     /* COLORS */
     --accent:#2f76c9;
+    --grey1:#E7E7E7;
+    --boxShadow:0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.06);
 }
 
 /* NORMALIZE TEMPLATE CODE from github.com/necolas */
@@ -268,6 +270,16 @@
     vertical-align: baseline;
   }
   
+
+    /**
+   * Remove the default decoration
+   */
+  
+  a{
+    text-decoration: none;
+    color: inherit
+  }
+
   /**
    * Remove the default vertical scrollbar in IE 10+.
    */

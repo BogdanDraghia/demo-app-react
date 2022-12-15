@@ -2,9 +2,9 @@ import style from "../layout.module.css";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <div>
+    <div className={style.HeaderContainer} style={{position:"relative"}}>
       {/* Testing purpose */}
-      <div>
+      <div style={{position:"absolute",left:-300 ,backgroundColor:'#f2f2f2',padding:10}}>
         <ul>
           <li>
             <Link to="/">Home & Podcast List</Link>
@@ -18,6 +18,9 @@ const Header = () => {
         </ul>
       </div>
       {/* Testing purpose */}
+      <h2>
+      <Link to="/">Podcaster</Link>
+      </h2>
     </div>
   );
 };
