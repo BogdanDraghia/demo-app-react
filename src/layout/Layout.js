@@ -5,7 +5,7 @@ const Layout = () => {
   return (
     <div className={style.layoutWrap}>
       <Header />
-      <div>
+      <div className={style.layoutContent}>
         <Outlet />
       </div>
     </div>

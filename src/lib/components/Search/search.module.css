@@ -1,0 +1,25 @@
+.SearchContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0px;
+}
+
+.input{
+    padding: 10px 20px;
+    border:1px solid #d6d6d6;
+    border-radius: 5px;
+    outline-color: var(--accent);
+}
+.Counter{
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--accent);
+    margin: 0px 20px ;
+    color: white;
+    font-size: 18px;
+    line-height: 1.15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
