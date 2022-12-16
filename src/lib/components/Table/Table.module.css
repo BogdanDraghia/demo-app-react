@@ -1,0 +1,39 @@
+.TableContainer{
+    display: flex;
+    flex-direction: column;
+}
+.TableContainer>table{
+    width: 100%;
+    text-align: left;
+
+}
+
+.TableContainer>table>thead>tr>th:last-child {
+    text-align: left;
+    width: 20%;
+    text-align: center;
+
+}
+.TableContainer>table>thead>tr>th{
+    padding: 0px 10px;
+}
+.TableContainer>table>thead>tr>th:nth-last-child(2) {
+    width: 10%;
+}
+
+.TableContainer>table>tbody>tr {
+    cursor: pointer;
+    position: relative;
+}
+
+
+.TableContainer>table>tbody>tr>td:last-child {
+    text-align: center;
+}
+.TableContainer>table>tbody>tr>td {
+    padding: 5px 10px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: medium;
+    border-bottom: 1px solid var(--grey1);
+}

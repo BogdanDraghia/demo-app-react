@@ -13,7 +13,7 @@ const Header = () => {
             <Link to="/podcast">Podcast</Link>
           </li>
           <li>
-            <Link to="/podcastepisode">PodcastEpisode</Link>
+            <Link to="/podcast/podcastepisode">PodcastEpisode</Link>
           </li>
         </ul>
       </div>

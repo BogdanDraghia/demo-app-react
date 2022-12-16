@@ -1,0 +1,58 @@
+.PodcastContainer{
+    display: flex;
+    margin-top: 20px;
+    flex: 2;
+    gap:50px;
+}
+.Image{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.ImageMock{
+    border-radius: 5px;
+    height: 250px;
+    width: 250px;
+    background-color: var(--accent);
+}
+.PodcastContainerLeft{
+    width: 100%;
+    flex: 1 1;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+    max-width: 300px;
+}
+
+.PodcastContainerRight{
+    width: 100%;
+    flex: 2 1;
+}
+
+/* PODCASTLISTEPISODE */
+
+.PodcastEpisodesCounter{
+    padding: 20px 20px;
+    margin: 0px 0px 30px;
+    background-color: white;
+    border-radius: 10px;
+
+}
+.PodcastEpisodesContainer{
+    display: flex;
+    flex-direction: column;
+}
+.PodcastEpisodesTable{
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+}
+
+
+/* PODCAST EPISODE */
+
+.PodcastEpisodeContainer{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
