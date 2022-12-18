@@ -14,7 +14,7 @@ const App = () => {
         <Route index element={<PodcastList />} />
         <Route path="/podcast" element={<Podcast />} >
           <Route index element={<PodcastListEpisodes/>} />
-          <Route path="podcastepisode" element={<PodcastEpisode />} />
+          <Route path=":podcastName" element={<PodcastEpisode />} />
         </Route>
         <Route path="*" element={<Error404 />} />
       </Route>

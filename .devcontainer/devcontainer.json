@@ -1,5 +1,6 @@
 {
 	"name": "Node.js",
 	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
-	"remoteUser": "root"
+	"remoteUser": "root",
+	"appPort": ["3000:3000" ]
 }
