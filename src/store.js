@@ -1,13 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit'
-import PodcastReducer from "./slices/podcast"
+import { configureStore } from "@reduxjs/toolkit";
+import PodcastReducer from "./slices/podcast";
 
 const reducer = {
-    podcasts:PodcastReducer
-}
+  podcasts: PodcastReducer,
+};
 
 const store = configureStore({
-    reducer: reducer,
-    devTools: true,
-  })
-  
-  export default store;
+  reducer: reducer,
+  devTools: true,
+});
+
+export default store;

@@ -12,9 +12,12 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<PodcastList />} />
-        <Route path="/podcast" element={<Podcast />} >
-          <Route index element={<PodcastListEpisodes/>} />
-          <Route path=":podcastName" element={<PodcastEpisode />} />
+        <Route path="/podcast" element={<Podcast />}>
+          <Route path=":podcastId" element={<PodcastListEpisodes />} />
+          <Route
+            path=":podcastId/episode/:episodeId"
+            element={<PodcastEpisode />}
+          />
         </Route>
         <Route path="*" element={<Error404 />} />
       </Route>

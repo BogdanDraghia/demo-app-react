@@ -1,25 +1,31 @@
 import Table from "../../lib/components/Table/Table";
-import style from "./Podcast.module.css"
+import style from "./Podcast.module.css";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import PodcastService from "../../services/podcast.service";
 const PodcastListEpisode = () => {
-
-    const mockTable = [
-      {title:'Lorem Title', date:'12/01/2022', duration:'14:00'},
-      {title:'Lorem Title', date:'12/01/2022', duration:'14:00'},
-      {title:'Lorem Title', date:'12/01/2022', duration:'14:00'},
-      {title:'Lorem Title', date:'12/01/2022', duration:'14:00'},
-      {title:'Lorem Title', date:'12/01/2022', duration:'14:00'},
-      {title:'Lorem Title', date:'12/01/2022', duration:'14:00'},
-      {title:'Lorem Title', date:'12/01/2022', duration:'14:00'},
-    ]
-    
-    return (
+  let params = useParams();
+  const [podcastData, setPodcastData] = useState([]);
+  useEffect(() => {
+    PodcastService.getPodcastEpisodes(params.podcastId).then(
+      (res) => {
+        setPodcastData(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, []);
+  return (
     <div className={style.PodcastEpisodesContainer}>
-      <div className={style.PodcastEpisodesCounter}>Episodes: 666</div>
-      <div className={style.PodcastEpisodesTable}>
-        <Table data={mockTable}/>  
+      <div className={style.PodcastEpisodesCounter}>
+        Episodes: {podcastData.length}
       </div>
-    </div>)
-  };
-  
-  export default PodcastListEpisode;
-  
+      <div className={style.PodcastEpisodesTable}>
+        <Table data={podcastData} />
+      </div>
+    </div>
+  );
+};
+
+export default PodcastListEpisode;

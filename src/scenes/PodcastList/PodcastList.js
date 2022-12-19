@@ -1,26 +1,25 @@
 import Search from "../../lib/components/Search/Search";
-import style from "./PodCastList.module.css"
-import { useEffect, useState} from "react";
+import style from "./PodCastList.module.css";
+import { useEffect, useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import {podcastSlice} from "../../slices/podcast"
 
-import PodcastService from "../../services/podcast.service"
+import PodcastService from "../../services/podcast.service";
 import { Link } from "react-router-dom";
 const PodcastList = () => {
   const [podcastList, setPodcastList] = useState([]);
-  const [loading,setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     PodcastService.getAllPodcasts().then(
-      (res)=>{
-        setPodcastList(res)
-        setLoading(false)
+      (res) => {
+        setPodcastList(res);
+        setLoading(false);
       },
-      (err)=>{
-        console.log(err)
+      (err) => {
+        console.log(err);
       }
-    )
-
-  },[])
+    );
+  }, []);
 
   // const dispatch = useDispatch();
   // const handleGetAllPodcasts= () => {
@@ -33,75 +32,42 @@ const PodcastList = () => {
   //       console.log("ok")
   //     });
   // };
-  const mockPodcastList = [
-    {
-      title: 'SONG EXPLODER',
-      author: 'SONG EXPLODER'
-    },
-    {
-      title: 'SONG EXPLODER',
-      author: 'SONG EXPLODER'
-    },
-    {
-      title: 'SONG EXPLODER',
-      author: 'SONG EXPLODER'
-    },
-    {
-      title: 'SONG EXPLODER',
-      author: 'SONG EXPLODER'
-    },
-    {
-      title: 'SONG EXPLODER',
-      author: 'SONG EXPLODER'
-    },
-    {
-      title: 'SONG EXPLODER',
-      author: 'SONG EXPLODER'
-    },
-    {
-      title: 'lorem ipsum',
-      author: 'Dolerem'
-    },
-  ]
-  console.log(podcastList)
-  return (
-  <div className={style.PodcastListWrap}>
-      <Search/>
-    <div className={style.PodcastList}>
-    {
-      !loading && podcastList.feed.entry.map((data, index) => {
-        return <ItemPodcast key={index} {...data} />
-      })
-    }
 
+  return (
+    <div className={style.PodcastListWrap}>
+      {!loading && <Search lengthOfPodcasts={podcastList.feed.entry.length} />}
+      <div className={style.PodcastList}>
+        {!loading &&
+          podcastList.feed.entry.map((data, index) => {
+            return <ItemPodcast key={index} {...data} />;
+          })}
+      </div>
     </div>
-  </div>);
+  );
 };
 
 const ItemPodcast = (props) => {
-  console.log(props)
   return (
     <div className={style.ItemPodcastContainer}>
-      <div className={style.ItemPodcast}>
-      <div className={style.ImagePodcastWrap}>
-        <div className={style.ImagePodcast}>
+      <Link to={"/podcast/" + props.id.attributes["im:id"]}>
+        <div className={style.ItemPodcast}>
+          <div className={style.ImagePodcastWrap}>
+            <div className={style.ImagePodcast}>
+              <img
+                alt={props["im:name"].label}
+                src={props["im:image"][2].label}
+              />
+            </div>
+          </div>
+          <h2>{props["im:name"].label}</h2>
+          <p>
+            {/* Author: {props.author} */}
+            {props["im:artist"].label}
+          </p>
         </div>
-      </div>
-      <h2>
-        {props["im:name"].label}
-      </h2>
-      <p>
-        {/* Author: {props.author} */}
-        {props["im:artist"].label}
-      </p>
-      <div>
-        <Link to={"/podcast"}>
-        Show podcast
-        </Link>
-      </div>
-      </div>
+      </Link>
     </div>
-  )
-}
+  );
+};
 
 export default PodcastList;
