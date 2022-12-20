@@ -9,8 +9,11 @@ const PodcastList = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if(typeof window !== "undefined" ) {
-        dispatch(getAllPodcasts())
+    const podcasts = JSON.parse(localStorage.getItem("persist:root"));
+    if (podcasts.podcasts.length !== 0 && podcasts.podcasts !== "[]") {
+      console.log(podcasts)
+    } else {
+      dispatch(getAllPodcasts());
     }
 },[])
   return (

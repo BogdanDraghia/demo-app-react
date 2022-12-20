@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import PodcastService from "../services/podcast.service";
 
-const initialState = [];
+const initialState =  [];
 
 export const getAllPodcasts = createAsyncThunk(
     "podcasts/getAll",
@@ -13,7 +13,6 @@ export const getAllPodcasts = createAsyncThunk(
 )
 
 const podcastSlice = createSlice({
-
     name: "podcasts",
     initialState,
     extraReducers:{
