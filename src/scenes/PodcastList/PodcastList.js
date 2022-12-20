@@ -1,44 +1,24 @@
 import Search from "../../lib/components/Search/Search";
 import style from "./PodCastList.module.css";
-import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import {podcastSlice} from "../../slices/podcast"
-
-import PodcastService from "../../services/podcast.service";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from "react-router-dom";
+import {getAllPodcasts} from "../../redux/podcastSlice"
 const PodcastList = () => {
-  const [podcastList, setPodcastList] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const podcasts = useSelector((state) => state.podcasts)
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    PodcastService.getAllPodcasts().then(
-      (res) => {
-        setPodcastList(res);
-        setLoading(false);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }, []);
-
-  // const dispatch = useDispatch();
-  // const handleGetAllPodcasts= () => {
-  //   dispatch(podcastSlice())
-  //     .unwrap()
-  //     .then(() => {
-  //       console.log("data")
-  //     })
-  //     .catch(() => {
-  //       console.log("ok")
-  //     });
-  // };
-
+    if(typeof window !== "undefined" ) {
+        dispatch(getAllPodcasts())
+    }
+},[])
   return (
     <div className={style.PodcastListWrap}>
-      {!loading && <Search lengthOfPodcasts={podcastList.feed.entry.length} />}
+      { <Search lengthOfPodcasts={podcasts.length} />}
       <div className={style.PodcastList}>
-        {!loading &&
-          podcastList.feed.entry.map((data, index) => {
+        {
+          podcasts.map((data, index) => {
             return <ItemPodcast key={index} {...data} />;
           })}
       </div>

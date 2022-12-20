@@ -2,20 +2,10 @@ import style from "./Podcast.module.css";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import PodcastService from "../../services/podcast.service";
+import { useSelector, useDispatch } from 'react-redux'
+
 const Podcast = () => {
-  let params = useParams();
-  const [podcastData, setPodcastData] = useState([]);
-  useEffect(() => {
-    PodcastService.getPodcastDetails(params.podcastId).then(
-      (res) => {
-        setPodcastData(res);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }, []);
+
   return (
     <div className={style.PodcastContainer}>
       <div className={style.PodcastContainerLeft}>
@@ -24,7 +14,7 @@ const Podcast = () => {
         </div>
         <div>
           <h3></h3>
-          <p>hello</p>
+          <p >hello</p>
         </div>
         <div>
           <h3>Descriptions:</h3>

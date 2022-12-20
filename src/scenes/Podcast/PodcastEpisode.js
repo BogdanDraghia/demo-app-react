@@ -6,7 +6,6 @@ import PodcastService from "../../services/podcast.service";
 const PodcastEpisode = (props) => {
   const [episodeData, SetEpisodeData] = useState([]);
   let params = useParams();
-  console.log(params);
   useEffect(() => {
     PodcastService.getPodcastEpisodes(params.podcastId).then(
       (res) => {
@@ -17,7 +16,6 @@ const PodcastEpisode = (props) => {
       }
     );
   }, []);
-  console.log(episodeData);
   return (
     <div className={style.PodcastEpisodeContainer}>
       <div>Descriptions Episode</div>
